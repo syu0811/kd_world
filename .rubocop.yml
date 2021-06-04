@@ -17,8 +17,8 @@ require:
 
 ## 全体に適応する項目を定義します。ここで Exclude に設定したファイルは、チェック対象外になります。
 AllCops:
-  TargetRubyVersion: 2.7.2
-  TargetRailsVersion: 6.1.0
+  TargetRubyVersion: 2.7.3
+  TargetRailsVersion: 6.1.3
   Exclude:
     - 'vendor/**/*'
     - 'bin/**/*'
@@ -175,3 +175,7 @@ Style/RegexpLiteral:
 # https://rubocop.readthedocs.io/en/stable/cops_style/#styleslicingwithrange
 Style/SlicingWithRange:
   Enabled: true
+
+
+Style/EndOfLine:
+  Enabled: False
