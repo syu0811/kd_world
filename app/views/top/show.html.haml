@@ -1,0 +1,4 @@
+%h1 
+  = "#{@user.name}のトップページ"
+= link_to "マイページ", user_path(current_user.id), class: ""
+= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "" 
