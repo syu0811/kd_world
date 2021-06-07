@@ -1,0 +1,20 @@
+.single-container
+  %h1
+    ユーザー一覧
+    
+  %table.table.text-nowrap
+    %thead.thead-light
+      %tr
+        %th.col-7
+          名前
+        %th.col-5
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td
+            = "#{user.name} #{user.email} 管理者権限#{user.admin}"
+          %td
+            = link_to '編集', edit_admin_user_path(user.id), class: 'btn btn-outline-dark'
+            = link_to '削除', admin_user_path(user.id), method: :delete, data: {confirm: '削除しますか？'}, class: 'btn btn-danger'
+      
+      = link_to "管理者ページ", admin_index_path, class: ""
