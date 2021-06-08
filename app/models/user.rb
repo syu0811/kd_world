@@ -14,8 +14,4 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
 
   validates :department_id, presence: true
-
-  validates :reset_password_token, uniqueness: true
-  validates :confirmation_token, uniqueness: true
-  validates :unlock_token, uniqueness: true
 end

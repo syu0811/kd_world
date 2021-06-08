@@ -5,6 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(name: "admin_user", email: "admin@example.com", password: "password", admin: true)
-User.create(name: "guest_user", email: "guest@example.com", password: "password", admin: false)
-User.create(name: "test_user", email: "test@example.com", password: "password", admin: false)
+
+Department.create(name: "IT学科", alphabet: "G")
+Department.create(name: "情報処理学科", alphabet: "H")
+Department.create(name: "ITスペシャリスト学科", alphabet: "J")
+Department.create(name: "ITエキスパート学科", alphabet: "K")
+
+
+User.create(name: "管理者", email: "kd9999999@st.kobedenshi.ac.jp", password: "password", admin: true, department: Department.first)
+User.create(name: "ゲスト", email: "kd0000000@st.kobedenshi.ac.jp", password: "password", admin: false, department: Department.first)
+User.create(name: "テスト", email: "kd1234567@st.kobedenshi.ac.jp", password: "password", admin: false, department: Department.first)
