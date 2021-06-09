@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update]
   before_action :attribute_log_in_user, only: [:show, :edit, :update]
+  before_action :attribute_departments, only: [:edit]
 
   def show; end
 
@@ -21,6 +22,10 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :department_id)
+    end
+
+    def attribute_departments
+      @departments = Department.all
     end
 end

@@ -2,6 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!, only: [:index, :show, :edit, :update, :destroy]
   before_action :attribute_users_list, only: [:index]
   before_action :attribute_log_in_user, only: [:index]
+  before_action :attribute_departments, only: [:edit]
   before_action :attribute_user, only: [:show, :edit, :update, :destroy]
 
   def index; end
@@ -46,7 +47,11 @@ class Admin::UsersController < ApplicationController
       @log_in_user = current_user
     end
 
+    def attribute_departments
+      @departments = Department.all
+    end
+
     def user_params
-      params.require(:user).permit(:name, :email, :admin)
+      params.require(:user).permit(:name, :email, :department_id, :admin)
     end
 end

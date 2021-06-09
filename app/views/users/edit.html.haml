@@ -11,4 +11,7 @@
 			.form-group
 				= f.label :email
 				= f.email_field :email, class: 'form-control'
+			.form-group
+				= f.label :department
+				= f.collection_select :department_id, @departments, :id, :name, {selected: @user.department_id}
 			= f.submit

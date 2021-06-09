@@ -25,6 +25,7 @@ ja:
         name: 名前
         email: "メールアドレス"
         password: "パスワード"
+        department: "学科"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
     models:

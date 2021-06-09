@@ -11,7 +11,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :admin, inclusion: { in: [true, false] }
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, presence: true, length: { minimum: 6 }
-
   validates :department_id, presence: true
 end

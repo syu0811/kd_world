@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      department:
+        name: "学科名"
+        alphabet: "識別コード"
+    models:
+      department: "学科"
