@@ -1,39 +1,34 @@
-class Admin::UsersController < ApplicationController
-  before_action :authenticate_admin!, only: [:index, :show, :edit, :update, :destroy]
-  before_action :attribute_users_list, only: [:index]
-  before_action :attribute_log_in_user, only: [:index]
-  before_action :attribute_departments, only: [:edit]
-  before_action :attribute_user, only: [:show, :edit, :update, :destroy]
+module Admin
+  class UsersController < ApplicationController
+    before_action :authenticate_admin!, only: [:index, :show, :edit, :update, :destroy]
+    before_action :attribute_users_list, only: [:index]
+    before_action :attribute_log_in_user, only: [:index]
+    before_action :attribute_departments, only: [:edit]
+    before_action :attribute_user, only: [:show, :edit, :update, :destroy]
 
-  def index; end
-
-  def show; end
-
-  def edit; end
-
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to admin_users_path, notice: t('flash.create')
-    else
-      redirect_to admin_users_path, notice: "登録に失敗しました"
+    def create
+      @user = User.new(user_params)
+      if @user.save
+        redirect_to admin_users_path, notice: t('flash.create')
+      else
+        redirect_to admin_users_path, notice: "登録に失敗しました"
+      end
     end
-  end
 
-  def update
-    if @user.update(user_params)
-      redirect_to admin_users_path, notice: t('flash.update')
-    else
-      redirect_to admin_users_path, notice: "更新に失敗しました"
+    def update
+      if @user.update(user_params)
+        redirect_to admin_users_path, notice: t('flash.update')
+      else
+        redirect_to admin_users_path, notice: "更新に失敗しました"
+      end
     end
-  end
 
-  def destroy
-    @user.destroy
-    redirect_to admin_users_path, notice: t('flash.destroy')
-  end
+    def destroy
+      @user.destroy
+      redirect_to admin_users_path, notice: t('flash.destroy')
+    end
 
-  private
+    private
 
     def attribute_users_list
       @users = User.all.where.not(id: current_user.id)
@@ -54,4 +49,5 @@ class Admin::UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :department_id, :admin)
     end
+  end
 end

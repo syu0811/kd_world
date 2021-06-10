@@ -11,14 +11,14 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def sign_in_required
-      redirect_to new_user_session_url unless user_signed_in?
-    end
+  def sign_in_required
+    redirect_to new_user_session_url unless user_signed_in?
+  end
 
   protected
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :department_id])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :department_id])
+  end
 end
