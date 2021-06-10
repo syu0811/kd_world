@@ -1,0 +1,35 @@
+ja:
+  navbar:
+    navbar:
+      admin: 管理者用ページ
+      mypage: マイページ
+      notes: ノート
+      my_lists: マイリスト
+      downloads: アプリのダウンロード
+      setting: 設定
+      log_out: ログアウト
+  top:
+    index:
+      new: 新着
+      trend: トレンド
+      notes: ノート
+      my_lists: マイリスト
+    shared:
+      my_lists:
+        confirm: 本当にマイリストを削除しますか？
+  shared:
+    footer:
+      policy: 利用規約
+      manual: マニュアル
+  users:
+    show:
+      notes: ノート
+      my_lists: マイリスト
+      total_edit_word_count: 総編集文字数
+      note_count: 総ノート数
+      my_list_count: 総マイリスト数
+      notes_category_ratio_graph: カテゴリ別ノート率
+      count: 文字
+  admin:
+    index:
+      title: 管理者用ページ

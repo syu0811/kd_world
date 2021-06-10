@@ -1,10 +1,10 @@
 module Admin
   class UsersController < ApplicationController
     before_action :authenticate_admin!, only: [:index, :show, :edit, :update, :destroy]
-    before_action :attribute_users_list, only: [:index]
-    before_action :attribute_log_in_user, only: [:index]
-    before_action :attribute_departments, only: [:edit]
-    before_action :attribute_user, only: [:show, :edit, :update, :destroy]
+    before_action :get_users_list, only: [:index]
+    before_action :get_log_in_user, only: [:index]
+    before_action :get_departments, only: [:edit]
+    before_action :get_user, only: [:show, :edit, :update, :destroy]
 
     def create
       @user = User.new(user_params)
@@ -30,19 +30,19 @@ module Admin
 
     private
 
-    def attribute_users_list
+    def get_users_list
       @users = User.all.where.not(id: current_user.id)
     end
 
-    def attribute_user
+    def get_user
       @user = User.find(params[:id])
     end
 
-    def attribute_log_in_user
+    def get_log_in_user
       @log_in_user = current_user
     end
 
-    def attribute_departments
+    def get_departments
       @departments = Department.all
     end
 

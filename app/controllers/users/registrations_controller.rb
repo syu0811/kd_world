@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :attribute_departments, only: [:new, :create, :edit, :update]
+  before_action :get_departments, only: [:new, :create, :edit, :update]
 
   # GET /resource/sign_up
   # def new
@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-  def attribute_departments
+  def get_departments
     @departments = Department.all
   end
 

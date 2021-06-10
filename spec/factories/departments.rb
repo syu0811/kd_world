@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :department do
-    name { 'テスト' }
-    alphabet { 'H' }
+    sequence(:name) { |n| "学科#{n}" }
+    sequence(:alphabet, "A")
   end
 end
