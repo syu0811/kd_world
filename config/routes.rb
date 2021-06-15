@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   resources :admin, only: [:index]
   namespace :admin do
     resources :users, only: [:index, :edit, :update, :destroy]
+    resources :topics, only: [:index, :destroy]
   end
-
+  resources :topics, only: [:index, :show, :new, :create]
   resources :home, only: [:index]
   resources :users, only: [:show]
   resources :top, only: [:index]

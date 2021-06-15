@@ -1,0 +1,26 @@
+%h1 トピック一覧
+
+%table
+  %thead
+    %tr
+      %th.col-7
+        タイトル
+      %th.col-7
+        作成者
+      %th.col-7
+        作成日
+      %th.col-7
+        更新日
+  %tbody
+    - @topics.each do |topic|
+      %tr
+        %td
+          = "#{topic.title}"
+        %td
+          = "#{topic.user.name}"
+        %td
+          = "#{topic.created_at.strftime('%Y/%m/%d') }"
+        %td
+          = "#{topic.updated_at.strftime('%Y/%m/%d')}"
+        %td
+          = link_to '削除', admin_topic_path(topic.id), method: :delete, data: {confirm: '削除しますか？'}, class: 'btn btn-danger'

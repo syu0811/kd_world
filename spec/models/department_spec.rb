@@ -22,10 +22,10 @@ RSpec.describe Department, type: :model do
         expect(department.errors[:alphabet]).to include('を入力してください')
       end
 
-      it "alphabetが１文字ではないと失敗する" do
-        department = build(:department, alphabet: "AA")
+      it "alphabetが2文字以内ではないと失敗する" do
+        department = build(:department, alphabet: "A" * 3)
         department.valid?
-        expect(department.errors[:alphabet]).to include('は1文字で入力してください')
+        expect(department.errors[:alphabet]).to include('は2文字以内で入力してください')
       end
 
       it "alphabetが英字かつ大文字ではないと失敗する" do

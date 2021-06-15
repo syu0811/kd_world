@@ -30,6 +30,12 @@ RSpec.describe User, type: :model do
         expect(user.errors[:email]).to include('は有効でありません。')
       end
 
+      it "departmentが無ければ失敗する" do
+        user = build(:user, department: nil)
+        user.valid?
+        expect(user.errors[:department]).to include('を入力してください')
+      end
+
       it "passwordが6文字以上ないと失敗する" do
         user = build(:user, password: "a", department: department)
         user.valid?

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin!
-    redirect_to user_path(@user) unless current_user.admin
+    redirect_to user_path(current_user.id) unless current_user.admin
   end
 
   private

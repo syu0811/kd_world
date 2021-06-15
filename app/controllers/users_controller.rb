@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   before_action :get_log_in_user, only: [:show]
+
   private
 
   def get_log_in_user

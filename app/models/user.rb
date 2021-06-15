@@ -7,6 +7,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\Akd[0-9]{7}@st.kobedenshi.ac.jp\z/i.freeze
 
   belongs_to :department
+  has_many :topics
 
   validates :name, presence: true
   validates :admin, inclusion: { in: [true, false] }
