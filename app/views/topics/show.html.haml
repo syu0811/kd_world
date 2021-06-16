@@ -1,2 +1,9 @@
 %h1
   = "#{@topic.title}"
+%br
+
+- @posts.each_with_index do |post, i|
+  = "#{i + 1}.#{post.user.name} : #{post.user.department.name} : #{l(post.created_at)}"
+  %br
+  = "#{post.body}"
+  %br

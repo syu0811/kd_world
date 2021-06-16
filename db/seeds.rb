@@ -18,3 +18,6 @@ User.create(name: "テスト", email: "kd1234567@st.kobedenshi.ac.jp", password:
 
 Topic.create(title: "テスト1", user: User.first)
 Topic.create(title: "テスト2", user: User.first)
+
+Post.create(user: User.first, body: "テスト１", topic: Topic.first)
+Post.create(user: User.first, body: "テスト２", topic: Topic.first)
