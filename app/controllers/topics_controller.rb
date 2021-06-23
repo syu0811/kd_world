@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
   before_action :get_users, only: [:new, :create]
   before_action :get_topic, only: [:show]
   before_action :get_posts, only: [:show]
+  before_action :set_new_post, only: [:show]
 
   def new
     @topic = Topic.new
@@ -34,6 +35,10 @@ class TopicsController < ApplicationController
 
   def get_posts
     @posts = Post.select_topic_posts(params[:id])
+  end
+
+  def set_new_post
+    @new_post = Post.new(topic_id: params[:id], user_id: current_user.id)
   end
 
   def topic_params
