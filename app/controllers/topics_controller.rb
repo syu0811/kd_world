@@ -38,7 +38,10 @@ class TopicsController < ApplicationController
   end
 
   def set_new_post
-    @new_post = Post.new(topic_id: params[:id], user_id: current_user.id)
+    @new_post = Post.new
+    session[:new_post] = Post.new
+    session[:new_post][:user_id] = current_user.id
+    session[:new_post][:topic_id] = params[:id]
   end
 
   def topic_params

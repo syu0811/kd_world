@@ -25,6 +25,12 @@ RSpec.describe Post, type: :model do
         expect(post.errors[:body]).to include('は50文字以内で入力してください')
       end
 
+      it "bodyが無ければ失敗する" do
+        post = build(:post, body: nil)
+        post.valid?
+        expect(post.errors[:body]).to include('を入力してください')
+      end
+
       it "topicが無ければ失敗する" do
         post = build(:post, topic: nil)
         post.valid?

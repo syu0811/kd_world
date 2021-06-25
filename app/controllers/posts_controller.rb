@@ -4,15 +4,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to topic_path(params[:post]['topic_id']), notice: '作成に成功'
+      redirect_to topic_path(session[:new_post]['topic_id']), notice: '作成に成功'
     else
-      redirect_to topic_path(params[:post]['topic_id']), notice: '作成に失敗'
+      redirect_to topic_path(session[:new_post]['topic_id']), notice: '作成に失敗'
     end
   end
 
-  protected
-
   def post_params
-    params.require(:post).permit(:body, :topic_id, :user_id)
+    @params = params.permit(:body)
+    @params[:user_id] = session[:new_post]['user_id']
+    @params[:topic_id] = session[:new_post]['topic_id']
+    @params
   end
 end
