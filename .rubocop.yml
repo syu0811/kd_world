@@ -154,6 +154,9 @@ Style/StringLiterals:
 Style/EmptyMethod:
     EnforcedStyle: expanded
 
+Style/EndOfLine:
+  EnforcedStyle: lf
+
 # # 引数や配列やハッシュの末尾はカンマを強制する
 Style/TrailingCommaInArguments:
     EnforcedStyleForMultiline: comma

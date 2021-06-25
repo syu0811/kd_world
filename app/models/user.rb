@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   belongs_to :department
   has_many :topics
+  has_many :posts
 
   validates :name, presence: true
   validates :admin, inclusion: { in: [true, false] }
