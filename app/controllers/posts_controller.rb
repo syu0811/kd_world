@@ -11,9 +11,9 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    @params = params.permit(:body)
-    @params[:user_id] = session[:new_post]['user_id']
-    @params[:topic_id] = session[:new_post]['topic_id']
+    @params = params[:post].permit(:body)
+    @params["user_id"] = session[:new_post]['user_id']
+    @params["topic_id"] = session[:new_post]['topic_id']
     @params
   end
 end
