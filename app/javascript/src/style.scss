@@ -13,10 +13,36 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";
+@import "~bootstrap/scss/bootstrap";
 @import "./navbar.scss";
+@import "./home.scss";
+@import "./users.scss";
+@import "./pulldown.scss";
+
+$page-bg: #282F32;
+$light-blue: #3599FF;
+$bright-blue: #68B3FF;
+$light-gray: #999;
+//$curve: cubic-bezier(0, 0, 0.52, 1.11);
+$curve: linear;
 
 /* セル幅を自動調整 */
 table, th, td {
   width: auto !important;
 };
+
+.white-text{
+  color: white;
+  width: 100%;
+}
+
+body {
+  font-family: Roboto;
+  background: $page-bg;
+  
+  a {
+    color: $light-blue;
+    font-size: 1em;
+    text-decoration: none;
+  }
+}

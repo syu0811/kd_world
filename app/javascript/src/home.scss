@@ -1,0 +1,44 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#M_introWrap{
+	margin:300px auto;	
+	border:2px solid #ccc;
+	background:#fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 500px;
+  height: 300px;
+}
+#M_introWrap h2{
+	font-size:15px;	
+	margin-bottom:24px;
+	padding-bottom:8px;
+	border-bottom:1px dotted #ccc;
+}
+#M_introContent{
+	margin:24px;
+	margin-bottom:0;
+}
+#M_introContent p{
+	margin-bottom:16px;	
+}
+.M_section{
+	margin-bottom:32px;	
+}
+.M_button a{
+	background: #ccc;
+	width: 120px;
+	line-height: 32px;
+	margin: 0 auto;
+	display:block;
+	text-decoration:none;
+  text-align: center;
+}
+.M_button a:hover{
+	background: #555;
+	color:#fff;
+}

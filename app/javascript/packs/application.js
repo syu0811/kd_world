@@ -8,8 +8,13 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import './user';
 
+import './user';
+import './pulldown';
+import "../src/style.scss";
+
+require("jquery");
+require("bootstrap");
 
 Rails.start()
 Turbolinks.start()

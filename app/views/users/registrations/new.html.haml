@@ -1,26 +1,24 @@
-.devise
-  .devise__container
-    %h1= t('.sign_up')
-    = form_with(model: @user, url: registration_path(resource_name), id: 'new_user', class: 'new_user', local: true) do |f|
-      = render "users/shared/error_messages", resource: resource
-      .form-group
-        = f.label :name
-        = f.text_field :name, class: 'form-control'
-      .form-group
-        = f.label :email
-        = f.email_field :email, class: 'form-control'
-      .form-group
-        = f.label :department
-        = f.collection_select :department_id, @departments, :id, :name, {include_blank: "選択してください"}
-      .form-group
-        = f.label :password
-        - if @minimum_password_length
-          %em
-            (#{@minimum_password_length} characters minimum)
-        = f.password_field :password, autocomplete: "new-password", class: 'form-control'
-      .form-group
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
-      .form-group
-        = f.submit t('.sign_up'), class: 'btn btn-primary'
-    = render "users/shared/links"
+.form
+  = form_with(model: @user, url: registration_path(resource_name), id: 'new_user', class: 'new_user', local: true) do |f|
+    = render "users/shared/error_messages", resource: resource
+    .text-input
+      = f.label :name
+      = f.text_field :name, autocomplete: "name", placeholder: "Name"
+    .text-input
+      = f.label :email
+      = f.email_field :email, autocomplete: "email", placeholder: "Email"
+    .aaaa
+      = f.label :department
+      = f.collection_select :department_id, @departments, :id, :name, {include_blank: "選択してください"}
+    .text-input
+      = f.label :password
+      - if @minimum_password_length
+        %em.white-text
+          (#{@minimum_password_length} 文字以上)
+      = f.password_field :password, autocomplete: "new-password", placeholder: "NewPassword", required: true
+    .text-input
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "NewPassword", required: true
+    .text-input
+      = f.submit t('.sign_up'), class: "form-bottom"
+= render "users/shared/links"

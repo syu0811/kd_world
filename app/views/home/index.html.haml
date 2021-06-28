@@ -1,2 +1,16 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+#M_introWrap
+  #M_introContent
+    %h2
+      = "KDアカウントログイン"
+    
+    .M_section
+      %p
+        = "KD生徒の方はこちらからログインしてください"
+      .M_button
+        = link_to "ログイン", new_user_session_path, class: "M_button"
+      
+    .M_section
+      %p
+        = "初めてご利用の方はこちらから会員登録してください。"
+      .M_button
+        = link_to "新規会員登録", new_user_registration_path, class: "M_button"
