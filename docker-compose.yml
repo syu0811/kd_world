@@ -28,7 +28,7 @@ services:
 
   webpack:
     <<: *app_base
-    command: /bin/sh -c "bin/webpack-dev-server --hot"
+    command: /bin/sh -c "bin/webpack-dev-server --config webpack.config.js"
     environment:
       NODE_ENV: $RAILS_ENV
       RAILS_ENV: $RAILS_ENV
@@ -41,6 +41,7 @@ services:
     depends_on:
       - web
     volumes:
+      - .:/kd_world
       - packs:/kd_world/public/packs
 
 volumes:
