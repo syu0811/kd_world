@@ -1,0 +1,15 @@
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/home/shuta/.rbenv/versions/2.7.3/bin/ruby -I /home/shuta/.rbenv/versions/2.7.3/lib/ruby/2.7.0 -r ./siteconf20210703-9705-1fncsfj.rb extconf.rb
+creating Makefile
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20210703-9705-haauik/skiptrace/internal
