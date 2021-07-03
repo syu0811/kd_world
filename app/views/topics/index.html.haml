@@ -1,30 +1,27 @@
-%h1 トピック一覧
+.white-text
+  %h1 トピック一覧
 
-= link_to t('.create'), new_topic_path
+  = link_to t('.create'), new_topic_path
 
-%table
-  %thead
-    %tr
-      %th.col-7
-        タイトル
-      %th.col-7
-        作成者
-      %th.col-7
-        作成日
-      %th.col-7
-        更新日
-  %tbody
-    - @topics.each do |topic|
+  %table
+    %thead
       %tr
-        %td
-          = link_to topic.title, topic_path(topic.id)
-        %td
-          = "#{topic.user.name}"
-        %td
-          = "#{topic.created_at.strftime('%Y/%m/%d') }"
-        %td
-          = "#{topic.updated_at.strftime('%Y/%m/%d')}"
-
-
-
-
+        %th.col-7
+          タイトル
+        %th.col-7
+          作成者
+        %th.col-7
+          作成日
+        %th.col-7
+          更新日
+    %tbody
+      - @topics.each do |topic|
+        %tr
+          %td
+            = link_to topic.title, topic_path(topic.id)
+          %td
+            = "#{topic.user.name}"
+          %td
+            = "#{topic.created_at.strftime('%Y/%m/%d') }"
+          %td
+            = "#{topic.updated_at.strftime('%Y/%m/%d')}"

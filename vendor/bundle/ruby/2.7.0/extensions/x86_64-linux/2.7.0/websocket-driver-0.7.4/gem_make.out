@@ -1,0 +1,15 @@
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.4/ext/websocket-driver
+/home/shuta/.rbenv/versions/2.7.3/bin/ruby -I /home/shuta/.rbenv/versions/2.7.3/lib/ruby/2.7.0 -r ./siteconf20210703-9705-15l5yno.rb extconf.rb
+creating Makefile
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.4/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.4/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.4/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20210703-9705-qxqw99

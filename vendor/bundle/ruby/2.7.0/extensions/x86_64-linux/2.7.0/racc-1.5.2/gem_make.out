@@ -1,0 +1,16 @@
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/racc-1.5.2/ext/racc/cparse
+/home/shuta/.rbenv/versions/2.7.3/bin/ruby -I /home/shuta/.rbenv/versions/2.7.3/lib/ruby/2.7.0 -r ./siteconf20210703-9705-1mzvnj9.rb extconf.rb
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: /home/shuta/kd_world/vendor/bundle/ruby/2.7.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20210703-9705-16b88d0/racc

@@ -1,0 +1,108 @@
+/**
+*Those Vars
+*/
+$page-bg: #282F32;
+$light-blue: #3599FF;
+$bright-blue: #68B3FF;
+$light-gray: #999;
+//$curve: cubic-bezier(0, 0, 0.52, 1.11);
+$curve: linear;
+
+.form{
+  width: 400px;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 10em;
+  
+  label{
+    display: block;
+    text-align: left;
+    color: white;
+    font-size: .875em;
+  }
+  
+  form{
+    
+    .text-input{
+      overflow: hidden;  
+       margin-bottom: .875em;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="email"]{
+      width: 100%;
+      padding: 1em 0 12px;
+      padding-left: 0;
+      background: none;
+      color: white;
+      font-size: 1.2em;
+      font-weight: 400;
+      border: none;
+      border-bottom: 1px solid $light-gray;
+      
+          
+      /*Some sibling magic happens */
+      &:focus + .separator {
+       transform: scaleX(1) translateY(-2px);   
+         opacity: 1;
+      }
+      
+    }
+    
+    input[type="submit"]{
+      color: white;
+      background: $light-blue;
+      padding: 1em 1.4em;
+      font-size: 1.2em;
+      border:none;
+      border-radius: 10px;
+    }
+  }
+}
+
+.separator {
+  height:3px;
+  width: 100%;
+  background: $bright-blue;
+  display: block;
+  transform: scaleX(0) translateY(-2px);
+  transform-origin: 50%;
+  opacity: 0;
+  transition: all .15s $curve;
+}
+
+/**
+* Form Reset - remove focus highlighting
+*/
+
+* :focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.form-bottom{
+  margin-top:1.25em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.login-forgot-pass {
+  //border-bottom: 1px solid white;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 75%;
+  left: 0;
+  opacity: 0.6;
+  padding: .5rem;
+  position: absolute;
+  text-align: center;
+  //text-decoration: none;
+  width: 100%;
+  &:hover {
+    opacity: 1;
+  }
+}
