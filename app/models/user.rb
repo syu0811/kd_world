@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :user_friends, class_name: 'Friends', foreign_key: 'user_id'
   has_many :friend_friends, class_name: 'Friends', foreign_key: 'friend_id'
+  has_many :user_friend_requests, class_name: 'FriendRequests', foreign_key: 'user_id'
+  has_many :applicant_friend_requests, class_name: 'FriendRequests', foreign_key: 'applicant_id'
 
   validates :name, presence: true
   validates :admin, inclusion: { in: [true, false] }
