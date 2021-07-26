@@ -4,6 +4,11 @@ RSpec.describe FriendRequest, type: :model do
   describe 'Validation' do
     let(:user) { create(:user) }
     let(:applicant) { create(:user) }
+    let(:friend_user) { create(:user) }
+
+    before do
+      create(:friend, user: applicant, friend: friend_user)
+    end
 
     context '正常系' do
       it "成功する" do
@@ -29,6 +34,12 @@ RSpec.describe FriendRequest, type: :model do
         request = build(:friend_request, user: user, applicant: user)
         request.valid?
         expect(request.errors[:user]).to include('自分に申請することはできません。')
+      end
+
+      it "申請先がすでにフレンド登録されていたら失敗する" do
+        request = build(:friend_request, user: friend_user, applicant: applicant)
+        request.valid?
+        expect(request.errors[:user]).to include('すでに登録済みのユーザーに申請することはできません。')
       end
     end
   end
