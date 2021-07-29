@@ -39,4 +39,35 @@ RSpec.describe FriendsController, type: :controller do
       end
     end
   end
+
+  describe "ログインしていない場合" do
+    let(:user) { create(:user) }
+    let(:friend_user) { create(:user) }
+    let(:friend_list) { create(:friend, user: user, friend: friend_user) }
+
+    before do
+      friend_list
+    end
+
+    describe "/friends" do
+      it "ログイン画面へリダイレクトする" do
+        get :index
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+    describe "/friends/:id" do
+      it "ログイン画面へリダイレクトする" do
+        get :show, params: { id: friend_list }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+    describe "DELETE /friends/:id" do
+      it "ログイン画面へリダイレクトする" do
+        delete :destroy, params: { id: friend_list }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
 end
