@@ -37,8 +37,8 @@ RSpec.describe Friend, type: :model do
     let(:user) { create_list(:user, 3) }
 
     before do
-      create(:friend, user: user[0], friend: user[1])
-      create(:friend, user: user[2], friend: user[0])
+      create(:friend, user: user[0], friend: user[2])
+      create(:friend, user: user[1], friend: user[0])
     end
 
     context '全てのフレンドが取得できているか' do

@@ -1,0 +1,6 @@
+.white-text
+  %h1
+    = "#{@friend.name}"
+
+  = "学科：#{@friend.department.name}"
+  = link_to '削除', friend_path(Friend.get_friend_table_id(current_user.id, @friend.id)), method: :delete, data: {confirm: '削除しますか？'}, class: 'btn btn-danger'
