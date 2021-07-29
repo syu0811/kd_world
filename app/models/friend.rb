@@ -21,6 +21,6 @@ class Friend < ApplicationRecord
   end
 
   def self.get_friend_table_id(user_id, friend_id)
-    Friend.where(user_id: user_id, friend_id: friend_id).or(Friend.where(user_id: friend_id, friend_id: user_id)).first
+    Friend.where(user_id: user_id, friend_id: friend_id).or(Friend.where(user_id: friend_id, friend_id: user_id))
   end
 end

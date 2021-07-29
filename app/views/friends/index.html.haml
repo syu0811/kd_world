@@ -16,6 +16,6 @@
         - @friends.each do |friend|
           %tr
             %td
-              = link_to "#{friend.name}", friend_path(Friend.get_friend_table_id(current_user.id, friend.id))
+              = link_to "#{friend.name}", friend_path(Friend.get_friend_table_id(current_user.id, friend.id).first)
             %td
               = "#{friend.department.name}"
