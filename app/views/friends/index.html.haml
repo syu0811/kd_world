@@ -1,0 +1,21 @@
+.white-text
+  %h1
+    フレンド一覧
+
+  - if @friends.empty?
+    = "フレンドはいません"
+  - else
+    %table
+      %thead
+        %tr
+          %th.col-7
+            名前
+          %th.col-7
+            学科
+      %tbody
+        - @friends.each do |friend|
+          %tr
+            %td
+              = link_to "#{friend.name}", friend_path(Friend.get_friend_table_id(current_user.id, friend.id).first)
+            %td
+              = "#{friend.department.name}"

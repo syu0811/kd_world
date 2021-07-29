@@ -12,7 +12,15 @@ class Friend < ApplicationRecord
   end
 
   def self.get_friend_list_ids_array(id)
-    friend_list = Friend.select(:friend_id).where(user_id: id).group(:friend_id).pluck(:friend_id) + Friend.select(:user_id).where(friend_id: id).group(:user_id).pluck(:user_id)
+    friend_list = Friend.select(:friend_id).where(user_id: id).group(:friend_id).pluck(:friend_id) + Friend.select(:user_id).where(friend_id: id).group(:user_id).pluck(:user_id).sort!
     friend_list.sort!
+  end
+
+  def self.get_friend_list(id)
+    User.where(id: get_friend_list_ids_array(id))
+  end
+
+  def self.get_friend_table_id(user_id, friend_id)
+    Friend.where(user_id: user_id, friend_id: friend_id).or(Friend.where(user_id: friend_id, friend_id: user_id))
   end
 end

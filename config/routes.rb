@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :topics, only: [:index, :show, :new, :create]
   resources :posts, only: [:create]
   resources :home, only: [:index]
+  resources :friends, only: [:index, :show, :destroy]
   resources :users, only: [:show]
   resources :top, only: [:index]
   root 'home#index'
