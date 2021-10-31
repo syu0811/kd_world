@@ -1,0 +1,26 @@
+.white-text
+  %h1
+    申請承認
+
+  = link_to "フレンド申請", new_friend_request_path
+  = link_to "申請一覧", friend_requests_path
+  %br
+
+  %table
+    %thead
+      %tr
+        %th.col-7
+          名前
+        %th.col-7
+          学科
+        %th.col-7
+          申請
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td
+            = user.applicant.name
+          %td
+            = user.applicant.department.name
+          %td
+            = "承認"

@@ -52,14 +52,14 @@ RSpec.describe TopicsController, type: :controller do
     end
 
     describe "/topics/:id" do
-      it "ステータス OK が返ってくる" do
+      it "ログイン画面へリダイレクトする" do
         get :show, params: { id: topic.id }
         expect(response).to redirect_to new_user_session_path
       end
     end
 
     describe "/topics/new" do
-      it "ステータス OK が返ってくる" do
+      it "ログイン画面へリダイレクトする" do
         get :new
         expect(response).to redirect_to new_user_session_path
       end

@@ -1,0 +1,16 @@
+.white-text
+  %h1
+    申請中
+  = link_to "フレンド申請", new_friend_request_path
+  = link_to "申請承認", friend_request_path(current_user)
+  %br
+  %table
+    %thead
+      %tr
+        %th.col-7
+          名前
+    %tbody
+      - @requests.each do |request|
+        %tr
+          %td
+            = request.user.name

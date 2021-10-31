@@ -17,4 +17,17 @@ class FriendRequest < ApplicationRecord
     friend_list = Friend.get_friend_list_ids_array(applicant_id)
     errors.add(:user, error_msg) if friend_list.include?(user_id)
   end
+
+  def self.get_user_list(id)
+    friends = Friend.get_friend_list(id).pluck(:id).push(id)
+    User.where.not(id: friends).order(Arel.sql('RANDOM()')).limit(10)
+  end
+
+  def self.get_request_user_list(id)
+    FriendRequest.where(applicant_id: id)
+  end
+
+  def self.get_request_pending_user_list(id)
+    FriendRequest.where(user_id: id)
+  end
 end

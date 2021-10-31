@@ -1,0 +1,40 @@
+.white-text
+  %h1
+    フレンド申請
+
+  = link_to "申請一覧", friend_requests_path
+  = link_to "申請承認", friend_request_path(current_user)
+  %br
+  %input{id: "name_text", required: "", type: "text"}
+  %input{onclick: "search_friends(name_text.value)", type: "button", value: "button"}
+  %br
+
+  %table
+    %thead
+      %tr
+        %th.col-7
+          名前
+        %th.col-7
+          学科
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td
+            = user.name
+          %td
+            = user.department.name
+          %td
+            = form_with(model: @friend_request, url: friend_requests_path, local: true) do |f|
+              - if f.object.errors.any?
+                .alert-warning
+                  %ul
+                    - f.object.errors.full_messages.each do |message|
+                      %li
+                      = message
+              = f.hidden_field :user_id, value: user.id
+              = f.hidden_field :applicant_id, value: current_user.id
+              .form-group
+                - if @pending.include?(user.id)
+                  = "申請中"
+                - else
+                  = f.submit "申請", class: 'btn btn-success'
