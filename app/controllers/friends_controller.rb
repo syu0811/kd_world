@@ -1,6 +1,5 @@
 class FriendsController < ApplicationController
   before_action :sign_in_required, only: [:index, :show, :create, :destroy]
-  before_action :get_friends, only: [:index]
 
   def index
     @user = current_user
@@ -19,8 +18,8 @@ class FriendsController < ApplicationController
   def create
     @friend = Friend.new(friend_params)
     if @friend.save
-      @friend_request = FriendRequest.find(params[:friend][:request_id])
-      @friend_request.destroy
+      FriendRequest.delete_request_users_and_friends(params[:friend][:user_id], params[:friend][:friend_id])
+      FriendRequest.delete_request_users_and_friends(params[:friend][:friend_id], params[:friend][:user_id])
       redirect_to friends_path, notice: 'フレンドに追加しました。'
     else
       render :index
@@ -40,9 +39,5 @@ class FriendsController < ApplicationController
 
   def friend_params
     params.require(:friend).permit(:user_id, :friend_id)
-  end
-
-  def get_friends
-    @friends = Friend.get_friend_list(current_user.id)
   end
 end

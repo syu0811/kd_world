@@ -25,4 +25,9 @@ class FriendRequest < ApplicationRecord
     friends = Friend.get_friend_list(id).pluck(:id).push(id)
     User.where.not(id: friends).order(Arel.sql('RANDOM()')).limit(10)
   end
+
+  def self.delete_request_users_and_friends(user_id, friend_id)
+    request = FriendRequest.find_by(user_id: user_id, applicant_id: friend_id)
+    request.destroy unless request.nil?
+  end
 end
