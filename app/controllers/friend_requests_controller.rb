@@ -7,6 +7,7 @@ class FriendRequestsController < ApplicationController
 
   def show
     @users = FriendRequest.get_request_pending_user_list(current_user.id)
+    @friend = Friend.new
   end
 
   def new
@@ -37,9 +38,9 @@ class FriendRequestsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def friend_request_params
-    @params = params.require(:friend_request).permit(:user_id, :applicant_id)
+    params.require(:friend_request).permit(:user_id, :applicant_id)
   end
 end

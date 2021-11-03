@@ -26,6 +26,17 @@
             %td
               = user.applicant.department.name
             %td
-              = "承認"
-            %td
-              = link_to '拒否', friend_request_path(user.id), method: :delete, data: {confirm: '申請を拒否しますか？'}, class: 'btn btn-danger'
+              = form_with(model: @friend, url: friends_path, local: true) do |f|
+                - if f.object.errors.any?
+                  .alert-warning
+                    %ul
+                      - f.object.errors.full_messages.each do |message|
+                        %li
+                        = message
+                = f.hidden_field :request_id, value: user.id
+                = f.hidden_field :user_id, value: user.user_id
+                = f.hidden_field :friend_id, value: user.applicant_id
+                .form-group
+                  = f.submit "承認", class: 'btn btn-success'
+              %td
+                = link_to '拒否', friend_request_path(user.id), method: :delete, data: {confirm: '申請を拒否しますか？'}, class: 'btn btn-danger'

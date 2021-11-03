@@ -11,8 +11,8 @@ class Friend < ApplicationRecord
     errors.add(:user, error_msg) if user_id == friend_id
   end
 
-  scope :get_friend_list, ->(id) { User.where(id: get_friend_list_ids_array(id)) }
   scope :get_friend_table_id, ->(user_id, friend_id) { where(user_id: user_id, friend_id: friend_id).or(where(user_id: friend_id, friend_id: user_id)) }
+  scope :get_friend_list, ->(id) { User.where(id: get_friend_list_ids_array(id)) }
 
   def self.get_friend_list_ids_array(id)
     friend_list = Friend.select(:friend_id).where(user_id: id).group(:friend_id).pluck(:friend_id) + Friend.select(:user_id).where(friend_id: id).group(:user_id).pluck(:user_id).sort!
