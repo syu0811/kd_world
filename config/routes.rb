@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:create]
   resources :home, only: [:index]
   resources :friends, only: [:index, :show, :destroy]
-  resources :friend_requests, only: [:index, :show, :new, :create, :delete]
+  resources :friend_requests, only: [:index, :show, :new, :create, :destroy]
   resources :users, only: [:show]
   resources :top, only: [:index]
   root 'home#index'

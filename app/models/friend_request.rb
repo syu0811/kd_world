@@ -7,6 +7,9 @@ class FriendRequest < ApplicationRecord
   validate :id_cannot_be_the_same_value
   validate :already_registered_users
 
+  scope :get_request_user_list, ->(id) { where(applicant_id: id) }
+  scope :get_request_pending_user_list, ->(id) { where(user_id: id) }
+
   def id_cannot_be_the_same_value
     error_msg = "自分に申請することはできません。"
     errors.add(:user, error_msg) if user_id == applicant_id
@@ -18,16 +21,8 @@ class FriendRequest < ApplicationRecord
     errors.add(:user, error_msg) if friend_list.include?(user_id)
   end
 
-  def self.get_user_list(id)
+  def self.get_user_random_list(id)
     friends = Friend.get_friend_list(id).pluck(:id).push(id)
     User.where.not(id: friends).order(Arel.sql('RANDOM()')).limit(10)
-  end
-
-  def self.get_request_user_list(id)
-    FriendRequest.where(applicant_id: id)
-  end
-
-  def self.get_request_pending_user_list(id)
-    FriendRequest.where(user_id: id)
   end
 end
