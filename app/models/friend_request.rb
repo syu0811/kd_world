@@ -27,7 +27,6 @@ class FriendRequest < ApplicationRecord
   end
 
   def self.delete_request_users_and_friends(user_id, friend_id)
-    request = FriendRequest.find_by(user_id: user_id, applicant_id: friend_id)
-    request.destroy unless request.nil?
+    FriendRequest.find_by(user_id: user_id, applicant_id: friend_id)&.destroy
   end
 end
