@@ -1,5 +1,5 @@
 class FriendRequestsController < ApplicationController
-  before_action :sign_in_required, only: [:index, :new, :create, :destroy]
+  before_action :sign_in_required, only: [:index, :new, :show, :create, :destroy]
 
   def index
     @requests = FriendRequest.get_request_user_list(current_user.id)
