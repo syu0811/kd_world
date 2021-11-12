@@ -86,7 +86,7 @@ RSpec.describe FriendRequestsController, type: :controller do
       let(:applicant) { create(:user) }
 
       it "ログイン画面へリダイレクトする" do
-        post :create, params: { post: { user_id: user.id, applicant_id: applicant.id } }
+        post :create, params: { friend_request: { user_id: user.id, applicant_id: applicant.id } }
         expect(response).to redirect_to new_user_session_path
       end
     end
