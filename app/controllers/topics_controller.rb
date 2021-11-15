@@ -2,9 +2,12 @@ class TopicsController < ApplicationController
   before_action :sign_in_required, only: [:index, :show, :new, :create]
   before_action :get_topics, only: [:index]
   before_action :get_users, only: [:new, :create]
-  before_action :get_topic, only: [:show]
-  before_action :get_posts, only: [:show]
-  before_action :set_new_post, only: [:show]
+
+  def show
+    @topic = Topic.find(params[:id])
+    @posts = Post.select_topic_posts(params[:id])
+    @new_post = Post.new
+  end
 
   def new
     @topic = Topic.new
@@ -19,7 +22,7 @@ class TopicsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def get_topics
     @topics = Topic.all
@@ -27,21 +30,6 @@ class TopicsController < ApplicationController
 
   def get_users
     @users = User.all
-  end
-
-  def get_topic
-    @topic = Topic.find(params[:id])
-  end
-
-  def get_posts
-    @posts = Post.select_topic_posts(params[:id])
-  end
-
-  def set_new_post
-    @new_post = Post.new
-    session[:new_post] = Post.new
-    session[:new_post][:user_id] = current_user.id
-    session[:new_post][:topic_id] = params[:id]
   end
 
   def topic_params
