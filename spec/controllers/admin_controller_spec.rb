@@ -23,7 +23,7 @@ RSpec.describe AdminController, type: :controller do
       sign_in login_user
     end
 
-    describe "/admin/" do
+    describe "/admin" do
       it 'ユーザページへリダイレクトすること' do
         get :index
         expect(response).to redirect_to user_path(login_user.id)

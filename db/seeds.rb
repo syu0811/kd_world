@@ -15,6 +15,10 @@ Department.create(name: "ITⅣ", alphabet: "K")
 User.create(name: "管理者", email: "kd9999999@st.kobedenshi.ac.jp", password: "password", admin: true, department: Department.first)
 User.create(name: "ゲスト", email: "kd0000000@st.kobedenshi.ac.jp", password: "password", admin: false, department: Department.first)
 User.create(name: "テスト", email: "kd1234567@st.kobedenshi.ac.jp", password: "password", admin: false, department: Department.first)
+User.create(name: "テスト_2", email: "kd2345678@st.kobedenshi.ac.jp", password: "password", admin: false, department: Department.first)
+
+Friend.create(user_id: User.first.id, friend_id: User.second.id)
+FriendRequest.create(user_id: User.first.id, applicant_id: User.third.id)
 
 Topic.create(title: "テスト1", user: User.first)
 Topic.create(title: "テスト2", user: User.first)

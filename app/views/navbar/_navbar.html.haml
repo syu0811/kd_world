@@ -9,5 +9,6 @@
     .navbar__icon-image#navbar_user{ onclick: 'toggleUserList()' }
     .navbar__user-pull-list#navbar_user_pull_list{ data: { open: "false" }}
       = link_to t('.mypage'), user_path(current_user), class: 'navbar__user-pull-item'
+      = link_to t('.friend'), friends_path, class: 'navbar__user-pull-item'
       = link_to t('.setting'), edit_user_registration_path, class: 'navbar__user-pull-item'
       = link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'navbar__user-pull-item'
