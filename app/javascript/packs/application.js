@@ -11,6 +11,7 @@ import "channels"
 
 import './user';
 import './pulldown';
+import './friend_request';
 import "../src/style.scss";
 
 require("jquery");

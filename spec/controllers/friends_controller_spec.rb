@@ -25,6 +25,23 @@ RSpec.describe FriendsController, type: :controller do
       end
     end
 
+    describe "POST /friends" do
+      let(:user) { create(:user) }
+      let(:friend) { create(:user) }
+
+      before do
+        post :create, params: { friend: { user_id: user.id, friend_id: friend.id } }
+      end
+
+      it "一覧ページへリダイレクトする" do
+        expect(response).to redirect_to friends_path
+      end
+
+      it "フレンドの作成に成功している" do
+        expect(Friend.all.size).to eq(2)
+      end
+    end
+
     describe "DELETE /friends/:id" do
       before do
         delete :destroy, params: { id: friend_list }
@@ -59,6 +76,16 @@ RSpec.describe FriendsController, type: :controller do
     describe "/friends/:id" do
       it "ログイン画面へリダイレクトする" do
         get :show, params: { id: friend_list }
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+    describe "POST /friends" do
+      let(:user) { create(:user) }
+      let(:friend) { create(:user) }
+
+      it "ログイン画面へリダイレクトする" do
+        post :create, params: { friend: { user_id: user.id, friend_id: friend.id } }
         expect(response).to redirect_to new_user_session_path
       end
     end

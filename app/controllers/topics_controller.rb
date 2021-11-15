@@ -22,7 +22,7 @@ class TopicsController < ApplicationController
     end
   end
 
-  protected
+  private
 
   def get_topics
     @topics = Topic.all

@@ -2,6 +2,8 @@
   %h1
     フレンド一覧
 
+  = link_to "フレンドリクエスト", new_friend_request_path
+  %br
   - if @friends.empty?
     = "フレンドはいません"
   - else
