@@ -21,7 +21,9 @@ COPY --from=node /usr/local/bin/node /usr/local/bin/
 RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
     && ln -s /opt/yarn/bin/yarnpkg /usr/local/bin/yarnpkg
 
-ENV BUNDLER_VERSION 2.1.3
+ENV BUNDLER_VERSION 2.1.4
+ENV RAILS_SERVE_STATIC_FILES 1
+ENV KD_WORLD_DATABASE_PASSWORD password
 
 RUN gem install bundler -v $BUNDLER_VERSION
 
@@ -48,6 +50,3 @@ RUN apt-get install -y tzdata \
 # キャッシュ削除
 RUN rm -rf /var/lib/apt/lists/*
 EXPOSE 3000
-
-# Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]

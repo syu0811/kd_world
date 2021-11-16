@@ -1,0 +1,1 @@
+CREATE ROLE kd_world LOGIN CREATEDB PASSWORD 'password';
