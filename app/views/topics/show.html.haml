@@ -1,0 +1,28 @@
+.white-text
+  %h1
+    = "#{@topic.title}"
+  %br
+
+  = link_to "一覧へ", topics_path
+  %br
+
+  - @posts.each_with_index do |post, i|
+    = "#{i + 1}.#{post.user.name} : #{post.user.department.name} : #{l(post.created_at)}"
+    %br
+    = "#{post.body}"
+    %br
+
+  %br
+  = form_with(model: @new_post, url: posts_path, local: true) do |f|
+    - if f.object.errors.any?
+      .alert-warning
+        %ul
+          - f.object.errors.full_messages.each do |message|
+            %li
+              = message
+    .form-group
+      = f.label :body
+      = f.text_area :body, class: 'form-control'
+    = f.hidden_field :topic_id, value: @topic.id
+    .form-group
+      = f.submit nil, class: 'btn btn-success'

@@ -1,0 +1,21 @@
+ja:
+  navbar:
+    navbar:
+      admin: 管理者用ページ
+      mypage: マイページ
+      friend: フレンド
+      setting: 設定
+      log_out: ログアウト
+  top:
+    index:
+      new: 新着
+    shared:
+      my_lists:
+        confirm: 本当に削除しますか？
+  shared:
+    footer:
+      policy: 利用規約
+      manual: マニュアル
+  admin:
+    index:
+      title: 管理者用ページ

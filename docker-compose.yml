@@ -1,14 +1,26 @@
+#version: '3'
+#services:
+#  db:
+#    image: postgres
+#    volumes:
+#      - ./tmp/db:/var/lib/postgresql/data
+#    environment:
+#      POSTGRES_PASSWORD: 'postgres'
+#    ports:
+#      - 5432:5432
+
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:13
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_PASSWORD: 'postgres'
+
   web:
     build: .
-    command: bash -c " rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c " rm -f tmp/pids/server.pid && bundle exec rails s --environment=production"
     volumes:
       - .:/kd_world
     ports:
