@@ -10,7 +10,8 @@
     "bootstrap": "^5.0.2",
     "jquery": "^3.6.0",
     "turbolinks": "^5.2.0",
-    "webpack": "^4.46.0"
+    "webpack": "^4.46.0",
+    "webpacker": "^4.6.0"
   },
   "version": "0.1.0",
   "devDependencies": {

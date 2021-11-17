@@ -79,6 +79,7 @@ PS> docker-compose up
 ```console
 PS> docker-compose exec web bash
 /kd_world# rails db:create db:migrate db:seed
+/kd_world# yarn add webpacker
 ```
 
 6. Chromeなどのブラウザで([http://localhost:3000/](http://localhost:3000/))にアクセスする。
