@@ -61,8 +61,9 @@
 2. Gitからcloneし、kd_worldフォルダに移動。
 
 ```console
-  PS> git clone https://github.com/syu0811/kd_world.git
-  PS> cd kd_world
+PS> git config --global core.autocrlf input
+PS> git clone https://github.com/syu0811/kd_world.git
+PS> cd kd_world
 ```
 
 3. docker-composeをBuildして、コンテナを立てる。
