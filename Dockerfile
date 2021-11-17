@@ -35,7 +35,6 @@ COPY Gemfile.lock /kd_world/Gemfile.lock
 RUN bundle install
 RUN yarn install
 COPY . /kd_world
-RUN rails assets:precompile
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
