@@ -59,13 +59,18 @@
 
 1. コマンドプロンプトもしくは、powershellを起動し、任意のフォルダに移動
 2. Gitからcloneし、kd_worldフォルダに移動。
+
+```console
+  PS> git clone https://github.com/syu0811/kd_world.git
+  PS> cd kd_world
+```
+
 3. docker-composeをBuildして、コンテナを立てる。
 
-  ```console
-  PS> git clone https://github.com/syu0811/kd_world.git
-  PS> docker-compose build
-  PS> docker-compose up
-  ```
+```console
+PS> docker-compose build
+PS> docker-compose up
+```
 
 4. コンソールに 「"Listening on http://0.0.0.0:3000"」と出ていたらOK
 5. 別の端末でデータベースの作成をする。
