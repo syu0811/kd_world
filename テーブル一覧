@@ -1,9 +1,0 @@
-user
-  name
-  email
-  password
-  department 学科
-
-department
-  name
-  alphabet
