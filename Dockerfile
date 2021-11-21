@@ -1,40 +1,24 @@
-FROM node:12.14.0 as node
 FROM ruby:2.7
 
-RUN apt-get update && apt-get install -y nodejs postgresql-client yarn locales
+RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+apt-get update && apt-get install -y yarn
 
-COPY --from=node /usr/local/bin/node /usr/local/bin/node
-COPY --from=node /usr/local/include/node /usr/local/include/node
-COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+RUN apt-get update && apt-get install -y nodejs postgresql-client locales
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-
-RUN ln -s /usr/local/bin/node /usr/local/bin/nodejs && \
-    ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
-
-ENV YARN_VERSION 1.21.1
-
-COPY --from=node /opt/yarn-v$YARN_VERSION /opt/yarn
-COPY --from=node /usr/local/bin/node /usr/local/bin/
-
-RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
-    && ln -s /opt/yarn/bin/yarnpkg /usr/local/bin/yarnpkg
-
-ENV BUNDLER_VERSION 2.1.4
 ENV RAILS_SERVE_STATIC_FILES 1
 ENV KD_WORLD_DATABASE_PASSWORD password
 
-RUN gem install bundler -v $BUNDLER_VERSION
-
+RUN gem install bundler
 
 RUN mkdir /kd_world
 WORKDIR /kd_world
 COPY Gemfile /kd_world/Gemfile
 COPY Gemfile.lock /kd_world/Gemfile.lock
-RUN bundle install
-RUN yarn install
 COPY . /kd_world
+
+RUN bundle install
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
@@ -51,4 +35,7 @@ RUN apt-get install -y tzdata \
 RUN rm -rf /var/lib/apt/lists/*
 EXPOSE 3000
 
-CMD ["rails", "webpacker:install"]
+RUN rails webpacker:install
+
+RUN rm -f config/credentials.yml.enc
+RUN rm -f config/master.key

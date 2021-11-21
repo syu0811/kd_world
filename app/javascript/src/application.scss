@@ -10,14 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require_directory .
  *= require_self
  */
-@import "~bootstrap/scss/bootstrap";
+
+
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./users.scss";
-@import "./pulldown.scss";
 
 $page-bg: #282F32;
 $light-blue: #3599FF;
