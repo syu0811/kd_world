@@ -36,4 +36,6 @@ RUN rm -rf /var/lib/apt/lists/*
 EXPOSE 3000
 
 RUN rails webpacker:install
-# RUN rails assets:precompile
+
+RUN rm -f config/credentials.yml.enc
+RUN rm -f config/master.key

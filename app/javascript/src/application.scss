@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_directory .
+ *= require_self
+ */
+
+
+@import "./navbar.scss";
+@import "./home.scss";
+@import "./users.scss";
+
+$page-bg: #282F32;
+$light-blue: #3599FF;
+$bright-blue: #68B3FF;
+$light-gray: #999;
+//$curve: cubic-bezier(0, 0, 0.52, 1.11);
+$curve: linear;
+
+/* セル幅を自動調整 */
+table, th, td {
+  width: auto !important;
+};
+
+.white-text{
+  color: white;
+  width: 100%;
+}
+
+body {
+  font-family: Roboto;
+  background: $page-bg;
+  
+  a {
+    color: $light-blue;
+    font-size: 1em;
+    text-decoration: none;
+  }
+}
