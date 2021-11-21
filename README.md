@@ -58,7 +58,7 @@
 ## Usage
 
 1. コマンドプロンプトもしくは、powershellを起動し、任意のフォルダに移動
-2. Gitからcloneし、kd_worldフォルダに移動。
+2. 以下のコマンドを実行し、ファイルをダウンロード後、ダウンロードしたファイルに移動。
 
 ```console
 PS> git config --global core.autocrlf input
@@ -66,7 +66,7 @@ PS> git clone https://github.com/syu0811/kd_world.git
 PS> cd kd_world
 ```
 
-3. docker-composeをBuildして、コンテナを立てる。
+3. 以下のコマンドを実行し、仮想コンテナを立てる。
 
 ```console
 PS> docker-compose build
@@ -74,15 +74,7 @@ PS> docker-compose up
 ```
 
 4. コンソールに 「"Listening on http://0.0.0.0:3000"」と出ていたらOK
-5. 別の端末でデータベースの作成をする。
-
-```console
-PS> docker-compose exec web bash
-/kd_world# rails db:create db:migrate db:seed
-/kd_world# yarn add webpacker
-```
-
-6. Chromeなどのブラウザで([http://localhost:3000/](http://localhost:3000/))にアクセスする。
+5. Chromeなどのブラウザで([http://localhost:3000/](http://localhost:3000/))にアクセスする。
 
 ## Note
 
