@@ -11,6 +11,7 @@
   %body
     %header.header
       = render partial: 'navbar/navbar'
-    = render partial: 'shared/flash_message'
+      #flash
+        = render partial: 'shared/flash_message'
     %main
       = yield

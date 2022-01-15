@@ -19,6 +19,7 @@
 @import "./home.scss";
 @import "./users.scss";
 @import "./topics.scss";
+@import "./flash.scss";
 
 $page-bg: #f5ebdf;
 $light-blue: #3599FF;
@@ -35,6 +36,10 @@ table, th, td {
 .white-text{
   color: black;
   width: 100%;
+}
+
+.main {
+  padding-top: 40px;
 }
 
 body {
