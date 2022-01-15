@@ -1,9 +1,12 @@
-.white-text
+.topics
+  %img
+  %p
+    掲示板
   %h1 トピック一覧
 
-  = link_to t('.create'), new_topic_path
-
   %table
+    %tr
+      = link_to t('.create'), new_topic_path
     %thead
       %tr
         %th.col-7

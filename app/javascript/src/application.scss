@@ -18,8 +18,9 @@
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./users.scss";
+@import "./topics.scss";
 
-$page-bg: #282F32;
+$page-bg: #f5ebdf;
 $light-blue: #3599FF;
 $bright-blue: #68B3FF;
 $light-gray: #999;
@@ -32,7 +33,7 @@ table, th, td {
 };
 
 .white-text{
-  color: white;
+  color: black;
   width: 100%;
 }
 
