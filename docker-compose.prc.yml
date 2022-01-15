@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_PASSWORD: 'postgres'
+
+  web:
+    build: .
+    command: bash -c " rm -f tmp/pids/server.pid && rails s --environment=production"
+    volumes:
+      - .:/kd_world
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
