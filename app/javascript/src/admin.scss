@@ -1,3 +1,46 @@
 // Place all the styles related to the admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.btn a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 300px;
+	height: 60px;
+	color: #333;
+	font-size: 18px;
+	font-weight: 700;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.btn a:hover {
+	color: #f2f2f2;
+}
+
+.btn01 a {
+	background-color: #ceb849;
+	border: 1px solid #333;
+}
+
+.btn01 a:hover {
+	background-color: #B99b00;
+	border: 1px solid #333;
+}
+
+.btn01 a::after {
+	//content: '';
+	position: absolute;
+	top: 50%;
+	right: -35px;
+	transform: translateY(-50%);
+	width: 70px;
+	height: 1px;
+	background-color: #333;
+}
+
+.center{
+  margin: 0 auto;
+}

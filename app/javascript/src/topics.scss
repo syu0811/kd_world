@@ -30,31 +30,5 @@
     margin:0;
     padding:0;
   }
-
-  table{
-    border-collapse: collapse;
-    margin: 0 auto;
-    padding: 0;
-    width: 650px;
-  }
-  
-  table thead tr {
-    background-color: rgb(194, 201, 106);
-    border-bottom: 2px solid #fff;
-  }
-
-  table tbody tr {
-    background-color: #fff;
-    border-bottom: 2px solid #fff;
-  }
-
-  table tr:nth-child(even){
-    background-color: #eee;
-  }
-
-  table th,
-  table td {
-    padding: .35em 1em;
-  }
   
 }

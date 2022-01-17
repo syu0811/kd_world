@@ -1,6 +1,8 @@
-.white-text
-  %h1
-    管理者ページ
-  %br
-  = link_to "ユーザー一覧", admin_users_path, class: "btn btn-outline-white"
-  = link_to "トピック 一覧", admin_topics_path, class: "btn btn-outline-white"
+.devise
+  .devise__container.user-edit
+    %h1
+      管理者ページ
+    %br
+    .btn.btn01
+      = link_to "ユーザー一覧", admin_users_path
+      = link_to "トピック 一覧", admin_topics_path

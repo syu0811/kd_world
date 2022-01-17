@@ -15,6 +15,7 @@
  */
 
 @import '~bootstrap/scss/bootstrap';
+@import "./admin.scss";
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./users.scss";
@@ -22,6 +23,7 @@
 @import "./flash.scss";
 @import "./devise.scss";
 @import "./user-edit.scss";
+@import "./table.scss";
 
 $page-bg: #f5ebdf;
 $light-blue: #3599FF;
@@ -91,3 +93,4 @@ small {
 .clear {
   clear: both;
 }
+
