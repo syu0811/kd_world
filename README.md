@@ -141,7 +141,6 @@ PS> docker-compose up
 # コンテナを起動した状態
 PS> docker-compose exec web bash
 # 接続を確認後
-$> EDITOR="vi" bin/rails credentials:edit
 $> rails assets:precompile
 $> RAILS_ENV=production rails db:create db:migrate db:seed
 ```

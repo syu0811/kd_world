@@ -9,7 +9,7 @@ services:
 
   web:
     build: .
-    command: bash -c " rm -f tmp/pids/server.pid && rails s --environment=production"
+    command: bash -c " rm -f tmp/pids/server.pid && EDITOR="vi" bin/rails credentials:edit && rails s --environment=production"
     volumes:
       - .:/kd_world
     ports:
