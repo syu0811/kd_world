@@ -1,16 +1,16 @@
-.white-text
+.row.m-0.p-0
   %h1
     Topic追加
-
-  = form_with(model: @topic, url: topics_path, local: true) do |f|
-    - if f.object.errors.any?
-      .alert-warning
-        %ul
+  .single-container
+    = form_with(model: @topic, url: topics_path, local: true) do |f|
+      - if f.object.errors.any?
+        .alert-warning
+          %ul
           - f.object.errors.full_messages.each do |message|
             %li
               = message
-    .form-group
-      = f.label :title
-      = f.text_field :title, class: 'form-control'
-    .form-group
-      = f.submit nil, class: 'btn btn-success'
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control'
+      .form-group
+        = f.submit nil, class: 'btn btn-success'

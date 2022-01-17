@@ -1,3 +1,34 @@
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.topics {
+
+  // border: solid 1px;
+  text-align: center;
+
+  img{
+    background-color: #ccc;
+    background-image: url('../images/board.png');
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+    height: 200px;
+    width: 400px;
+  }
+
+  p{
+    position: absolute;
+    color: black;
+    font-weight: bold;
+    font-size: 4em;
+    font-family: Quicksand, sans-serif;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%,0%);
+
+    margin:0;
+    padding:0;
+  }
+  
+}

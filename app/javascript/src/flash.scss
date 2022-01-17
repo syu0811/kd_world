@@ -1,0 +1,8 @@
+.flash {
+  animation: fadeIn 0.5s, fadeOut 2s 5s forwards;
+  bottom: 30px;
+  left: 30px;
+  max-width: 80%;
+  position: fixed;
+  z-index: 1000;
+}

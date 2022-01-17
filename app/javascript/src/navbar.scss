@@ -1,22 +1,21 @@
 .navbar {
   background-color: #056676;
-  height: 57.64px;
-  min-width: 720px;
+  height: 60px;
+  min-width: 10px;
 
   &__icon-image {
     background-color: #ccc;
-    background-image: url('../images/no_image_icon.png');
+    background-image: url('../images/hamburger_icon.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    border: solid 1px #ccc;
     border-radius: 50%;
+    display: block;
     cursor: pointer;
-    height: 39px;
-    margin-left: 20px;
-    margin-right: 10px;
+    height: 60px;
+    margin-left: auto;
     user-select: none;
-    width: 39px;
+    width: 60px;
   }
 
   &__user-pull-list {
@@ -27,9 +26,10 @@
     padding: 15px 0;
     position: absolute;
     right: 10px;
-    top: 57px;
+    top: 60px;
     user-select: none;
     z-index: 30000;
+    list-style-type: none;
   }
 
   &__user-pull-item {

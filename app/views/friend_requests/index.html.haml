@@ -1,22 +1,24 @@
-.white-text
-  %h1
-    申請中
-  = link_to "フレンド申請", new_friend_request_path
-  = link_to "申請承認", friend_request_path(current_user)
-  %br
+.devise
+  .devise__container.user-edit
+    %h1
+      申請中
+    = link_to "フレンド申請", new_friend_request_path
+    = link_to "申請承認", friend_request_path(current_user)
+    %br
 
-  - if @requests.empty?
-    = "申請しているユーザーはいません。"
-  - else
-    %table
-      %thead
-        %tr
-          %th.col-7
-            名前
-      %tbody
-        - @requests.each do |request|
+    - if @requests.empty?
+      = "申請しているユーザーはいません。"
+    - else
+      %table
+        %thead
           %tr
-            %td
-              = request.user.name
-            %td
-              = link_to '取り消す', friend_request_path(request.id), method: :delete, data: {confirm: '取り消しますか？'}, class: 'btn btn-danger'
+            %th.col-7
+              名前
+            %th.col-7
+        %tbody
+          - @requests.each do |request|
+            %tr
+              %td
+                = request.user.name
+              %td
+                = link_to '取り消す', friend_request_path(request.id), method: :delete, data: {confirm: '取り消しますか？'}, class: 'btn btn-danger'

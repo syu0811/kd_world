@@ -1,0 +1,52 @@
+.user-edit {
+  min-width: 440px;
+
+  &__title {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.name {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.email {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.password {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.btn--update,
+a.btn--update {
+  color: #fff;
+  background-color: #8bfc40;
+}
+.btn--update:hover,
+a.btn--update:hover {
+  color: #fff;
+  background: #ddff9f;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
+.btn--delete,
+a.btn--delete {
+  color: #fff;
+  background-color: #ff4646;
+}
+.btn--delete:hover,
+a.btn--delete:hover {
+  color: #fff;
+  background: #ff9999;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
