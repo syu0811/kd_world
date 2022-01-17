@@ -1,48 +1,56 @@
-%h2
-  = t('.title') {resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "users/shared/error_messages", resource: resource
-  .form-group
-    = f.label :name
+.devise
+  .devise__container.user-edit
+    %h2.user-edit__title
+      = t('.title') {resource_name.to_s.humanize}
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "users/shared/error_messages", resource: resource
+      .form-group
+        = f.label :name
+        %br
+        .name
+          = f.text_field :name, style: "text-align: center;", class: 'form-control'
+      .field
+        = f.label :email
+        %br/
+        .email
+          = f.email_field :email, style: "text-align: center;", autofocus: true, autocomplete: "email", class: 'form-control'
+      .form-group
+        = f.label :department
+        %br
+        = f.collection_select :department_id, @departments, :id, :name, {selected: @user.department_id}
+    
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          = t('.currently_waiting_confirmation_for_email') {resource.unconfirmed_email}
+      .field
+        = f.label :password
+        %i
+          = t('.leave_blank_if_you_don_t_want_to_change_it')
+        %br/
+        .password
+          = f.password_field :password, style: "text-align: center;", autocomplete: "new-password", class: 'form-control'
+        - if @minimum_password_length
+          %br/
+          %em
+            = @minimum_password_length
+            characters minimum
+      .field
+        = f.label :password_confirmation
+        %br/
+        .password
+          = f.password_field :password_confirmation, style: "text-align: center;", autocomplete: "new-password", class: 'form-control'
+      .field
+        = f.label :current_password
+        %i 
+          = t('.we_need_your_current_password_to_confirm_your_changes')
+        %br/
+        .password
+          = f.password_field :current_password, style: "text-align: center;", autocomplete: "current-password", class: 'form-control'
+      .actions
+        = f.submit t('.update'), class: "btn btn--update btn--radius"
     %br
-    = f.text_field :name, class: 'form-control'
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .form-group
-    = f.label :department
-    %br
-    = f.collection_select :department_id, @departments, :id, :name, {selected: @user.department_id}
-
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      = t('.currently_waiting_confirmation_for_email') {resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i
-      = t('.leave_blank_if_you_don_t_want_to_change_it')
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i 
-      = t('.we_need_your_current_password_to_confirm_your_changes')
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit t('.update')
-%h3
-  = t('.cancel_my_account')
-%p
-  = t('.unhappy') {button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete}
-= link_to t('.back'), :back
+    %h3
+      = t('.cancel_my_account')
+    %p
+      = t('.unhappy') {button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn--delete btn--radius"}
+    = link_to t('.back'), :back

@@ -1,0 +1,12 @@
+.devise {
+  @extend .container;
+
+  padding: 50px 50px;
+
+  &__container {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px 100px;
+    text-align: center;
+  }
+}
